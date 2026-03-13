@@ -19,3 +19,17 @@
 注意：
 
 - 服务器只接受密钥连接，推荐使用 `ed25519`: `ssh-keygen -t ed25519`
+
+### NAS资源信息
+
+| NAS 名称 | 远程地址 (SAMBA / SMB) | 总容量  | 服务器挂载路径      |
+| -------- | ---------------------- | ------- | ------------------- |
+| dataset0 | //10.20.37.22/dataset0 | 143 TiB | /mnt/dataset0 (NFS) |
+| dataset1 | //10.16.57.94/dataset1 | 100 TiB | /mnt/dataset1       |
+| dataset2 | //10.16.57.94/dataset2 | 53 TiB  | /mnt/dataset2       |
+| dataset3 | //10.16.93.90/dataset3 | 158 TiB | /mnt/dataset3       |
+| dataset4 | //10.20.33.82/dataset4 | 419 TiB | /mnt/dataset4 (NFS) |
+
+注：
+
+- `dataset0` / `dataset4` 与四台服务器通过 **10G** 网络连接
