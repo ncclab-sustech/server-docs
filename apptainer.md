@@ -1,3 +1,5 @@
+# Apptainer 使用教程
+
 ## Apptainer 定义文件 (pytorch.def)
 
 创建一个名为 `pytorch.def` 的文件。我们推荐基于 NVIDIA 官方的 PyTorch 容器进行构建，因为它已经针对 GPU 驱动和 CUDA 进行了深度优化。
@@ -12,7 +14,9 @@ From: nvcr.io/nvidia/pytorch:24.01-py3  # 使用 NVIDIA 官方镜像作为基础
         git \
         vim \
         wget \
-        tmux
+        tmux && \
+        apt-get clean && \
+        rm -rf /var/lib/apt/lists/*
 
     # 安装额外的 Python 库
     # 注意：基础镜像已自带 PyTorch，此处只需安装项目特定依赖
@@ -33,13 +37,11 @@ From: nvcr.io/nvidia/pytorch:24.01-py3  # 使用 NVIDIA 官方镜像作为基础
 
 ```
 
-------
-
 ## 构建镜像
 
 在有 **root 权限** 的 Linux 环境下执行以下命令进行构建：
 
-```
+```bash
 apptainer build pytorch_env.sif pytorch.def
 ```
 
