@@ -8,13 +8,15 @@
 | nccserv1  | AMD EPYC 7T83 64-Core     | 512GiB (64GB DDR4 * 8)  | 5 × RTX 4090 (24G)     | 2TB SSD + 7.68TB SSD (3.84T*2) |
 | amax-a100 | 2 × AMD EPYC 7Y83 64-Core | 512GiB (32GB DDR4 * 16) | 2 × NVIDIA A100 (80GB) | 512GB SSD + 3.84TB SSD         |
 | amax-l40  | 2 × AMD EPYC 9554 64-Core | 512GiB (64GB DDR5 * 8)  | 8 × NVIDIA L40 (48G)   | 3.84TB SSD + 16TB HDD          |
+| trx50-ai-top | AMD Ryzen Threadripper 9980X 64-Core | 128GiB (64GB DDR5 * 2) | 无 | 1.8TB SSD + 14.6TB HDD + 3 × 9.1TB HDD |
 
-| **节点名称** | **系统**                                                   | **SSH 地址** | **端口** |
-| ------------ | ---------------------------------------------------------- | ------------ | -------- |
-| nccserv0     | Ubuntu 22.04                                               | 10.20.38.38  | 1022     |
-| nccserv1     | Ubuntu 22.04                                               | 10.20.37.212 | 1022     |
-| amax-a100    | openSUSE Leap 16.0 (Slurm Host) / Debian 13 (Slurm Client) | 10.20.37.38  | 1022     |
-| amax-l40     | Ubuntu 20.04                                               | 10.20.97.33  | 1022     |
+| **节点名称** | **系统**                                                      | **SSH 地址** | **端口** |
+| ------------ | ----------------------------------------------------------- | ------------ | -------- |
+| nccserv0     | Ubuntu 22.04                                                | 10.20.38.38  | 1022     |
+| nccserv1     | Ubuntu 22.04                                                | 10.20.37.212 | 1022     |
+| amax-a100    | openSUSE Leap 16.0 (Slurm Host) / Debian 13 (Slurm Gateway) | 10.20.37.38  | 22 / 1022 |
+| amax-l40     | Ubuntu 20.04                                                | 10.20.97.33  | 1022     |
+| trx50-ai-top | openSUSE Leap 16.0 (Slurm Host) / Debian 13 (Slurm Gateway) | trx50-ai-top / trx50-ai-top-slurm | 22 / 1022 |
 
 注意：
 
@@ -32,4 +34,4 @@
 
 注：
 
-- `dataset0` / `dataset4` 与四台服务器通过 **10G** 网络连接
+- `dataset0` / `dataset4` 与 nccserv0、nccserv1、amax-a100、amax-l40 通过 **10G** 网络连接
